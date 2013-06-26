@@ -1,0 +1,18 @@
+<h1><%= @item.name %> </h1>
+
+
+
+<h3> Submit a bid for this item: </h3>
+ <%= render 'new_bid_form' %>
+
+<ul>
+Bids for this item: 
+<% @item.bids.each do |bid| %>
+<li><%= bid.amount %>  
+		<%= bid.buyer.name %>
+</li>
+<% end %>
+</ul>
+
+
+<%= link_to 'Back to All Items being Auctioned', items_path %>

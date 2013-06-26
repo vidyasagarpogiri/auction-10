@@ -1,0 +1,15 @@
+<h1>Sell something! </h1>
+
+<%= form_for(@seller) do |f| %>  
+<div class="field">
+    <%= f.label "Your name (first and last):" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label "Item you want to auction:" %><br />
+    <%= text_field :item_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
