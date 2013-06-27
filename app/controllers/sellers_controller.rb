@@ -4,6 +4,15 @@ class SellersController < ApplicationController
     @item = Item.new
   end
 
+  def index
+    @sellers = Seller.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @seller }
+    end
+  end
+
   def show
     @seller = Seller.find(params[:id])
 
@@ -18,9 +27,12 @@ class SellersController < ApplicationController
   end
 
   def update
+    @seller = Seller.find(params[:id])
+    @item = Item.create(:name => params[:item_name], :seller_id => @seller.id)
+
      respond_to do |format|
-      if @seller.update_attributes(params[:seller])
-        format.html { redirect_to @seller, notice: 'Seller was successfully updated.' }
+      if @seller.items << @item
+        format.html { redirect_to @seller, notice: 'Successfully added.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -30,12 +42,12 @@ class SellersController < ApplicationController
   end
 
   def create
-    @seller = Seller.new(params[:seller][:name])
-    @item = Item.create(:name => params[:item_name], :seller_id => @seller.id)
-    @seller << @item
+    @seller = Seller.find_or_create_by_name(params[:seller])
 
     respond_to do |format|
-      if @seller.save
+      if true 
+        @item = Item.create(:name => params[:item_name], :seller_id => @seller.id)
+        @seller.items << @item
         format.html { redirect_to @seller, notice: 'Seller was successfully created.' }
         format.json { render json: @seller, status: :created, location: @seller }
       else
@@ -50,7 +62,7 @@ class SellersController < ApplicationController
     @seller.destroy
 
     respond_to do |format|
-      format.html { redirect_to categories_url }
+      format.html { redirect_to sellers_url }
       format.json { head :no_content }
     end
   end

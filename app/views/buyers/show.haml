@@ -1,0 +1,11 @@
+%h1= @buyer.name.capitalize 
+
+%h3 You are bidding on... 
+
+- @buyer.bids.each do |bid| 
+  %ul
+    %li
+      = link_to bid.item.name.capitalize, bid.item(bid.item.id)
+      for 
+      = bid.amount
+      = link_to "Retract Bid", "/items/#{bid.item.id}/bids/#{bid.id}", method: :delete, data: { confirm: 'Are you sure?' }

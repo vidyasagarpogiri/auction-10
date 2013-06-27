@@ -1,0 +1,16 @@
+%h1= link_to @item.seller.name, seller_path(@item.seller.id)
+%h2 is auctioning a...
+%h1= @item.name.capitalize 
+
+%h3 Submit a bid for this item: 
+
+= render 'new_bid_form' 
+
+%ul 
+	Bids for this item: 
+	- @item.bids.each do |bid|
+		%li
+			= bid.amount
+			= link_to bid.buyer.name, buyer_path(bid.buyer.id)
+
+= link_to 'Back to All Items being Auctioned', items_path 

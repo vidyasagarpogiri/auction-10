@@ -1,0 +1,11 @@
+%h1 People Selling Their Stuff!
+
+- @sellers.each do |seller|
+	%ul
+		%li= link_to seller.name, seller
+		= link_to 'Edit', edit_seller_path(seller)
+		= link_to 'Delete', seller, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Seller', new_seller_path 

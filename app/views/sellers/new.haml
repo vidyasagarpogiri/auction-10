@@ -1,0 +1,14 @@
+%h1 Sell something! 
+
+= form_for(@seller) do |f| 
+  .field
+    = f.label "Your name (first and last):" 
+    %br
+    = f.text_field :name 
+
+  .field
+    = f.label "Item you want to auction:"
+    %br
+    = text_field_tag :item_name 
+  .actions
+    = f.submit "Submit"
