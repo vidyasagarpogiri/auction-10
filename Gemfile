@@ -13,6 +13,7 @@ gem 'binding_of_caller'
 gem 'meta_request'
 gem 'haml'
 
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -21,7 +22,7 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
+  gem 'zurb-foundation'
   gem 'uglifier', '>= 1.0.3'
 end
 
