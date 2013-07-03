@@ -12,3 +12,21 @@
  *= require foundation_and_overrides
  *= require_tree .
  */
+
+.top-bar-section ul li>a:hover {
+color: #2ba6cb;
+}
+
+.blue_spaced {
+	color: #2ba6cb;
+	letter-spacing: 3px;
+	text-decoration: underline;
+}
+
+ul {
+	list-style-type: none;
+}
+
+#massive_div {
+	margin-left: 15px;
+}

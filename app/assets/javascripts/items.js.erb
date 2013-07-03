@@ -1,0 +1,16 @@
+$(document).ready(function(){ 
+	$(document).foundation(); 
+
+	$(".list_of_items").each(function() {
+		$(this).effect("shake", "slow");
+	});
+
+	$("#item_name").autocomplete({
+		source: ["cup","lamp","table","artwork","my best friend","kitten","hugs","kiss from me","shoes","old sock","designer bag","my autograph","date with me","watch","scarf","style lesson","wine"]
+	});
+
+	$(".new_seller .field .ui-helper-hidden-accessible").remove();
+
+	$(".change_header").addClass("blue_spaced", 1000, "swing");
+
+});
